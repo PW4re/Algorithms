@@ -37,7 +37,7 @@ class CycleFinder:
                     self.father[v] = current_vertex
                     self.stack.append(v)
                     break
-                elif current_vertex >= v != self.father[current_vertex]:
+                elif v in self.stack and v != self.father[current_vertex]:
                     self._find_cycle(v, current_vertex)
                     self.result = 'N'
                     print("В графе есть цикл!")

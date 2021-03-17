@@ -23,8 +23,11 @@ class TestCycleFinder(unittest.TestCase):
     def test_dfs_example(self):
         self._test_dfs(4, [[2, 3], [1, 3], [1, 2, 4], [3]], 'N 1 2 3')
 
-    def test_dfs_chain(self):
+    def test_dfs_chain1(self):
         self._test_dfs(4, [[2], [1, 3], [2, 4], [3]], 'A')
+
+    def test_dfs_chain2(self):
+        self._test_dfs(4, [[3], [3], [1, 2, 4], [3]], 'A')
 
     def test_dfs_circle(self):
         self._test_dfs(3, [[2], [1, 3], [2, 1]], 'N 1 2 3')
@@ -34,3 +37,6 @@ class TestCycleFinder(unittest.TestCase):
 
     def test_dfs_loopback_long_graph(self):
         self._test_dfs(4, [[2], [1, 3], [3, 2, 4], [3]], 'N 3')
+
+    def test_dfs_acyclic_graph(self):
+        self._test_dfs(8, [[2], [1, 3, 5, 7], [2, 4, 6, 8], [3], [2], [3], [2], [3]], 'A')
