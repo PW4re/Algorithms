@@ -112,7 +112,8 @@ public class PathSearcher {
     private Cell getValidatedNeighbor(int horizontal, int vertical, Cell father){
         if ((horizontal <= 8 && horizontal >= 1) &&
                 (vertical <= 8 && vertical >= 1) &&
-                ((forbiddenHorizontals[0] != horizontal || forbiddenHorizontals[1] != horizontal)
+                ((forbiddenHorizontals.length > 0 && forbiddenHorizontals[0] != horizontal ||
+                        forbiddenHorizontals.length > 1 && forbiddenHorizontals[1] != horizontal)
                 && vertical != forbiddenVertical))
             return new Cell(horizontal, vertical, father);
         return null;
